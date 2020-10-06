@@ -1,3 +1,5 @@
+# WARNING: this repo is archived and moved to https://github.com/KiLJ4EdeN/COVID_WEB.
+
 # COVID_WEB
 
 Source codes for the paper: 
