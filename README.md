@@ -17,44 +17,29 @@ You are free to change the code to use your desired models.
 # Usage:
 ## Install Dependencies w pip:
 
-1- tensorflow
-
-2- sklearn
-
-3- opencv-contrib-python
-
-4- flask
-
-5- flask-ngrok
-
-6- pil
-
-7- numpy
-
-8- scipy
-
-## Download the dataset and unzip the images:
 ```bash
-git clone https://github.com/UCSD-AI4H/COVID-CT
-cd COVID-CT/Images-processed/
-unzip CT-COVID.zip
-unzip CT-NonCOVID.zip
+pip3 install tensorflow sklearn opencv-contrib-python flask flask-ngrok pil numpy scipy
 ```
 
-
 ## Do this steps in order. This includes loading the data, extracting feature maps and running the service.
+Remember to include the dataset in the directory.
 
 ```bash
 git clone https://github.com/KiLJ4EdeN/COVID_WEB
+git clone https://github.com/UCSD-AI4H/COVID-CT
+cp COVID-CT/Images-processed/{CT_COVID.zip,CT_NonCOVID.zip} COVID_WEB
+rm -rf COVID-CT
 cd COVID_WEB
+unzip CT_COVID.zip
+unzip CT_NonCOVID.zip
 python3 create_dataset.py
 python3 extract_features.py
 python3 server.py
 ```
+
 The ngrok host url should be displayed.
 
 Note that you can comment out flask ngrok if you dont have an internet connection.
-
 
 ## Additional utils
 ### These let you see the classification metrics, or get new parameters with bayesian optimization.
@@ -63,3 +48,14 @@ python3 run_bayesian_optimization.py
 python3 evaluate_model.py
 ```
 Consider that this is just for demonstration, since the model is already using optimal parameters.
+
+
+Citation:
+
+@article{Saeedi2020ANA,
+  title={A Novel and Reliable Deep Learning Web-Based Tool to Detect COVID-19 Infection from Chest CT-Scan},
+  author={Abdolkarim Saeedi and Maryam Saeedi and Arash Maghsoudi},
+  journal={ArXiv},
+  year={2020},
+  volume={abs/2006.14419}
+}
